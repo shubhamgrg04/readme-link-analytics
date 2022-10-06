@@ -4,7 +4,7 @@ const github = require('@actions/github');
 (async () => {
   try {
     const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
-    print(github.context.repo)
+    console.log(github.context.repo);
     context = github.context
     owner = github.context.repo.owner
     repo = github.context.repo.repo
@@ -14,7 +14,7 @@ const github = require('@actions/github');
       repo,
       file_sha
     });
-    print(readme)
+    console.log(readme);
     
   } catch (e) {
     console.error("Failed: ", e)
