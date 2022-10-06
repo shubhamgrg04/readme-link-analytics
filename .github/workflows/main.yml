@@ -8,5 +8,5 @@ jobs:
       - name: Modifying README.md links
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        uses: shubhamgrg04/readme-link-analytics@v1.1
+        uses: shubhamgrg04/readme-link-analytics@v1.3
         
