@@ -8,7 +8,7 @@ const github = require('@actions/github');
     context = github.context
     owner = github.context.repo.owner
     repo = github.context.repo.repo
-    file_sha = core.getInput('path')
+    file_sha = "README.md"
     readme = await octokit.rest.git.getBlob({
       owner,
       repo,
