@@ -44,7 +44,7 @@ runs:
       shell: bash
       run: |
         cat README.md
-        sed "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md > README.md
+        sed "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md | cat
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add README.md
