@@ -6,7 +6,7 @@ jobs:
     name: Readme Link Tracking
     steps:
       - name: Modifying README.md links
-        id: modifying
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: shubhamgrg04/readme-link-analytics@v1.1
-        with:
-          who-to-greet: 'Mona the Octocat'
+        
