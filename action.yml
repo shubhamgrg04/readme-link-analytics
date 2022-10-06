@@ -43,9 +43,7 @@ runs:
     - name: Add and Commit changes
       shell: bash
       run: |
-        cat README.md
-        sed "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md | cat
-        sed "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md > README.md
+        sed -i "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add -u
