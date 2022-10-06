@@ -41,5 +41,5 @@ runs:
         git config user.email github-actions@github.com
         git add README.md
         git commit -m "(Automated) Update README.md links"
-        git push
+        git push origin main
       
