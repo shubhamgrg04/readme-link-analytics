@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Readme Link Tracking
+    steps:
+      - name: Modifying README.md links
+        id: modifying
+        uses: shubhamgrg04/readme-link-analytics@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'

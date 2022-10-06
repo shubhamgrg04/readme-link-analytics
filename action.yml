@@ -1,0 +1,10 @@
+name: 'Readme Link Analytics Tracker'
+description: 'Action modifies all links in README.md for tracking anaylitics'
+inputs:
+  commit-message: 
+    description: 'Commit message to be used for automated updation of README.md'
+    required: false
+    default: '(Automated) Update README.md for link tracking'
+runs:
+  using: 'node16'
+  main: 'index.js'

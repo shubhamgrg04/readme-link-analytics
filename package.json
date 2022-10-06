@@ -1,0 +1,24 @@
+{
+  "name": "readme-link-analytics",
+  "version": "1.0.0",
+  "description": "Github action to track clicks on links in README.md of a repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamgrg04/readme-link-analytics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamgrg04/readme-link-analytics/issues"
+  },
+  "homepage": "https://github.com/shubhamgrg04/readme-link-analytics#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  }
+}
