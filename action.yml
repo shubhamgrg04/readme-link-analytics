@@ -32,17 +32,19 @@ runs:
       with:
         ref: main
 
-    - name: Print README.md
-      shell: bash
-      run: cat README.md
+    # - name: Print README.md
+    #   shell: bash
+    #   run: cat README.md
     
-    - name: Substitute all links in README.md
-      run: sed "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md > README.md
-      shell: bash
+    # - name: Substitute all links in README.md
+    #   run: 
+    #   shell: bash
     
     - name: Add and Commit changes
       shell: bash
       run: |
+        cat README.md
+        sed "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md > README.md
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add README.md
