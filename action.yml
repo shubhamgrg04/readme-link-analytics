@@ -1,52 +1,40 @@
-# name: 'Readme Link Analytics Tracker'
-# description: 'Action modifies all links in README.md for tracking anaylitics'
-# inputs:
-#   commit-message: 
-#     description: 'Commit message to be used for automated updation of README.md'
-#     required: false
-#     default: '(Automated) Update README.md for link tracking'
-# runs:
-#   using: "composite"
-#   steps:
-#     # Reference a specific commit
-#     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
-#     # Reference the major version of a release
-#     - uses: actions/checkout@v3
-#     # Reference a specific version
-#   using: 'node16'
-#   main: 'index.js'
-
 name: 'Readme Link Analytics Tracker'
 description: 'Action modifies all links in README.md for tracking anaylitics'
 inputs:
+  branch:
+    description: "The branch to checkout and commit changes"
+    required: false
+    default: "main"
+
+  author_name:
+    description: The name of the user that will be displayed as the author of the commit
+    required: false
+    default: "github-actions"
+
+  author_email:
+    description: The email of the user that will be displayed as the author of the commit
+    required: false
+    default: "github-actions@github.com"
+  
   commit-message: 
-    description: 'Commit message to be used for automated updation of README.md'
+    description: 'The commit message to be used for automated updation of README.md'
     required: false
     default: '(Automated) Update README.md for link tracking'
+
+
 runs:
   using: "composite"
   steps:
-    # Reference the major version of a release
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
         ref: main
 
-    # - name: Print README.md
-    #   shell: bash
-    #   run: cat README.md
-    
-    # - name: Substitute all links in README.md
-    #   run: 
-    #   shell: bash
-    
-    - name: Add and Commit changes
+    - name: Substitute all links in README.md and commit changes
       shell: bash
       run: |
+        git checkout ${INPUT_BRANCH}
         sed -i "s/\(\[.*\]\)(\(.*\))/\1(https:\/\/shubhamgarg.com\?url=\2)/" README.md
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add -u
-        git commit -m "(Automated) Update README.md links"
-        git push origin main
-      
+        git config user.name ${INPUT_AUTHOR_NAME}
+        git config user.email ${INPUT_AUTHOR_EMAIL}
+        git diff --quiet || git add README.md || git commit -m ${INPUT_COMMIT_MESSAGE} && git push
